@@ -1,0 +1,2 @@
+Push disk 1 to Stack C
+

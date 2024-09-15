@@ -1,0 +1,7 @@
+Pop disk 1 from A and Push disk 1 to C
+Pop disk 2 from A and Push disk 2 to B
+Pop disk 1 from C and Push disk 1 to B
+Pop disk 3 from A and Push disk 3 to C
+Pop disk 1 from B and Push disk 1 to A
+Pop disk 2 from B and Push disk 2 to C
+Pop disk 1 from A and Push disk 1 to C
