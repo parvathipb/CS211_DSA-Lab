@@ -1,0 +1,129 @@
+insert 5
+insert 72
+minimum
+preorder
+maximum
+insert 45
+insert 3
+maximum
+insert 87
+minimum
+inorder
+insert 83
+inorder
+insert 95
+insert 82
+insert 57
+search 58
+maximum
+insert 58
+insert 39
+maximum
+insert 60
+inorder
+insert 40
+insert 63
+insert 51
+insert 38
+insert 27
+search 0
+insert 56
+inorder
+search 43
+search 82
+maximum
+insert 78
+insert 23
+insert 6
+inorder
+insert 36
+insert 68
+insert 10
+insert 20
+insert 49
+successor 98
+inorder
+maximum
+postorder
+maximum
+search 94
+insert 13
+insert 14
+insert 34
+postorder
+insert 84
+search 73
+insert 30
+postorder
+insert 75
+predecessor 35
+postorder
+successor 99
+insert 94
+inorder
+search 80
+predecessor 53
+successor 54
+preorder
+maximum
+postorder
+preorder
+insert 55
+postorder
+insert 17
+minimum
+predecessor 21
+preorder
+insert 62
+search 18
+insert 47
+predecessor 38
+insert 11
+predecessor 56
+insert 93
+successor 56
+predecessor 8
+insert 2
+minimum
+preorder
+insert 77
+insert 54
+search 12
+insert 74
+maximum
+maximum
+insert 91
+search 64
+postorder
+predecessor 37
+predecessor 15
+insert 19
+postorder
+minimum
+preorder
+predecessor 10
+successor 14
+minimum
+preorder
+insert 16
+postorder
+search 47
+successor 35
+insert 28
+minimum
+successor 34
+insert 48
+insert 71
+maximum
+successor 23
+inorder
+insert 81
+insert 79
+minimum
+preorder
+insert 65
+predecessor 42
+search 26
+inorder
+successor 17
+insert 1
