@@ -16,14 +16,8 @@ void insert(node** head,char *new_value){
     strcpy(new_node->value,new_value);
     new_node->next=*head;
     *head=new_node;
+    //printf("inserted %s\n",new_value);
 }
-
-// int get_location(int sum,int Hash_table_Size){
-//     if(sum<0){
-//           sum*=-1;
-//     }
-//     return sum%Hash_table_Size;
-// }
 
 void insert_into_table(node** hashtable,char *new_value,int sum,int Hash_table_Size){
     int location=sum%Hash_table_Size;
@@ -37,25 +31,6 @@ void insert_into_table(node** hashtable,char *new_value,int sum,int Hash_table_S
         node* head=hashtable[location];
         insert(&head,new_value);
         hashtable[location]=head;
-    }
-
-}
-
-void display(FILE *f_r,node** hashtable,int Hash_table_Size){
-    for(int i=0;i<Hash_table_Size;i++){
-        node* head=hashtable[i];
-        fprintf(f_r,"%d: ",i);
-        if(head==NULL){
-            fprintf(f_r,"NULL");
-        }
-        else{
-            node* current=head;
-            while(current!=NULL){
-                fprintf(f_r,"%s ",current->value);
-                current=current->next;
-            }
-        }
-        fprintf(f_r,"\n");
     }
 }
 
@@ -77,29 +52,9 @@ void sortArr(char a[]) {
       }
     }
   }
-
 }
 
-int isAnagram(FILE *f_a,char a[], char t[]) {
-//     bool found=true;
-// int c[26] = {0};
-// for (int i = 0; i < strlen(s); i ++) {
-// c[s[i]-97] ++;
-// }
-// for (int i = 0; i < strlen(t); i ++) {
-// c[t[i]-97]--;
-// }
-// for (int i = 0; i < 26; i ++) {
-// if (c[i] != 0) {
-// // printf("No, it's not");
-// found=false;
-// break;
-// }
-// }
-// if(found==true){
-// // printf("Yes, it is");
-// fprintf(f_a,"%s ",t);
-// }
+int isAnagram(char a[], char t[]) {
  int i = 0;
 char b[50];
 strcpy(b,t);
@@ -124,8 +79,6 @@ strcpy(b,t);
 
   sortArr(a); // sorting the string
   sortArr(b); // sorting the string
-  // after sorting the strings just check whether both strings are equal or not.
-  // if equal return 1 else return 0.
   for (i = 0; i < strlen(a); i++) {
     if (a[i] != b[i]) {
       return 0;
@@ -133,6 +86,24 @@ strcpy(b,t);
   }
 
   return 1;
+}
+
+void display(node** hashtable,int Hash_table_Size){
+    for(int i=0;i<Hash_table_Size;i++){
+        node* head=hashtable[i];
+        printf("%d: ",i);
+        if(head==NULL){
+            printf("NULL");
+        }
+        else{
+            node* current=head;
+            while(current!=NULL){
+                printf("%s ",current->value);
+                current=current->next;
+            }
+        }
+        printf("\n");
+    }
 }
 
 void print_anagrams(FILE *f_a,node** hashtable,int key,char *string2){
@@ -143,17 +114,16 @@ void print_anagrams(FILE *f_a,node** hashtable,int key,char *string2){
         else{
             node* current=head;
             while(current!=NULL){
-                if(isAnagram(f_a,string2,current->value)==1){
+                if(isAnagram(string2,current->value)==1){
                    fprintf(f_a,"%s ",current->value);
+                   //printf("%s ",current->value);
                 }
-                else{
-                    fprintf(f_a,"");
-                }
-                // fprintf(f_a,"%s \t",current->value);
+                // printf("%s \t",current->value);
                 current=current->next;
             }
         }
         fprintf(f_a,"\n");
+        //printf("\n");
 }
 
 int main(int argcom, char* argvalue[]){
@@ -177,20 +147,26 @@ if(fpoin==NULL)
 	{
 		printf("FILE NOT FOUND");
 		exit(0);
-	} 
+	}
+  else{ 
   while(fgets(bufferval,BSIZE,fpoin)!=NULL){
     char *string1;
     string1=strtok(bufferval,"\n");
     int len=strlen(string1);
     int sum=0;
+    //printf("hello");
     for(int i=0;i<len;i++){
         sum=sum+string1[i];
     }
-    //sum-=10;
+    sum-=10;
     // fprintf(f_z,"%d\n",sum);
+    //printf("%d",sum);
     insert_into_table(table,string1,sum,m);
   }
- //display(f_r,table,m);
+   //display(table,m);
+  }
+  fclose(fpoin);
+
 if(f_q==NULL)
 	{
 		printf("FILE NOT FOUND");
@@ -204,13 +180,10 @@ if(f_q==NULL)
     for(int i=0;i<n;i++){
         sum=sum+string2[i];
     }
-    //sum-=10;
-    //fprintf(f_p,"%d\n",sum);
     int key =sum%m;
     print_anagrams(f_a,table,key,string2);
   }
 
-fclose(fpoin);
 fclose(f_q);
 fclose(f_a);
 return 0;
